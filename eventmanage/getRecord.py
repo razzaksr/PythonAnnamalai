@@ -68,6 +68,6 @@ class recordRead(Tk):
             con.close()
         except Exception as e:print(e)
 
-
+'''
 rec=recordRead()
-rec.mainloop()
+rec.mainloop()'''

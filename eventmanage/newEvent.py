@@ -55,6 +55,6 @@ class neweve(Tk):
         finally:
             con.close()
 
-
+'''
 n = neweve()
-n.mainloop()
+n.mainloop()'''

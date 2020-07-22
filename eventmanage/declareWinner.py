@@ -51,14 +51,20 @@ class winDec(Tk):
                 pos+=1
 
     def declare(self):
-        con = connect("localhost", "root", "", "avscollege")
-        cur = con.cursor()
-        con.autocommit(True)
-        qry = "update `events` set `winner`='%s' where `eid` =%d"%(self.result.get(),int(self.ids.get()))
-        cur.execute(qry)
-        messagebox.showinfo("Status", "Winner declared")
-        con.close()
+        try:
+            con = connect("localhost", "root", "", "avscollege")
+            cur = con.cursor()
+            qry = "update events set winner='"+self.result.get()+"' where eid="+self.ids.get()
+            yet=cur.execute(qry)
+            con.commit()
+            print(yet)
+            if yet!=0:
+                messagebox.showinfo("Status", "Winner declared")
+            else:messagebox.showinfo("Error","Not declared")
+            con.close()
+        except Exception as e:
+            messagebox.showinfo("Error",e)
 
 
-w = winDec()
-w.mainloop()
+'''w = winDec()
+w.mainloop()'''

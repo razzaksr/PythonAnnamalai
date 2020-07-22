@@ -61,5 +61,5 @@ class partAdd(Tk):
         else:messagebox.showinfo("Status","Participant "+self.part.get()+" not added")
         con.close()
 
-p=partAdd()
-p.mainloop()
+'''p=partAdd()
+p.mainloop()'''
