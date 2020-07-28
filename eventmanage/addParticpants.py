@@ -11,6 +11,8 @@ class partAdd(Tk):
         Tk.__init__(self)
         self.title("Adding particpants")
         self.geometry("500x300")
+        p1 = PhotoImage(file="C:\\Users\\DOLL\\PycharmProjects\\MorningBatch\\eventmanage\\bday.ico")
+        self.iconphoto(False, p1)
         self.head=Label(self,text="Adding new particpants",font=('Times New Roman',20))
         self.head.grid(row=0,column=10)
         self.selectId=Label(self,text="Select Event id to add particpants")
@@ -36,6 +38,14 @@ class partAdd(Tk):
         self.part.grid(row=3,column=30)
         self.en=Button(self,text="Add",command=self.update)
         self.en.grid(row=4,column=10)
+        self.bs = Button(self, text="BAck", command=self.back)
+        self.bs.grid(row=0, column=30)
+
+    def back(self):
+        self.destroy()
+        #from eventmanage.eventsHome import home
+        import eventmanage.eventsHome as hm
+        hm.home().mainloop()
     def show(self):
         con = connect('localhost', 'root', '', 'avscollege')
         qry = "select edate,ename,edept from events where eid=%d" % (int(self.ids.get()))

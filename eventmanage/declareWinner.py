@@ -12,6 +12,8 @@ class winDec(Tk):
         Tk.__init__(self)
         self.title("Declaring winner")
         self.geometry("500x300")
+        p1 = PhotoImage(file="C:\\Users\\DOLL\\PycharmProjects\\MorningBatch\\eventmanage\\bday.ico")
+        self.iconphoto(False, p1)
         self.head = Label(self, text="Announcement of winner", font=('Times New Roman', 20))
         self.head.grid(row=0, column=10)
         self.selectId = Label(self, text="Select Event id to see the details")
@@ -26,12 +28,19 @@ class winDec(Tk):
             self.ids['values'] = pack
             con.close()
         except Exception as e:
-            print(e)
+            messagebox.showinfo("Error",e)
         self.ids.grid(row=1, column=30)
         self.bt = Button(self, text="Read", command=self.show)
         self.bt.grid(row=1, column=50)
         self.one = Label(self, text="")
         self.one.grid(row=2, column=6)
+        self.bs = Button(self, text="BAck", command=self.back)
+        self.bs.grid(row=0, column=30)
+
+    def back(self):
+        self.destroy()
+        import eventmanage.eventsHome as hm
+        hm.home().mainloop()
 
     def show(self):
         con = connect('localhost', 'root', '', 'avscollege')
@@ -57,7 +66,6 @@ class winDec(Tk):
             qry = "update events set winner='"+self.result.get()+"' where eid="+self.ids.get()
             yet=cur.execute(qry)
             con.commit()
-            print(yet)
             if yet!=0:
                 messagebox.showinfo("Status", "Winner declared")
             else:messagebox.showinfo("Error","Not declared")

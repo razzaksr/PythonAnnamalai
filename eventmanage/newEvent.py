@@ -6,12 +6,13 @@ from tkinter.ttk import Combobox
 
 from pymysql import *
 
-
 class neweve(Tk):
     def __init__(self):
         Tk.__init__(self)
         self.title("Adding New Event")
         self.geometry("500x300")
+        p1 = PhotoImage(file="C:\\Users\\DOLL\\PycharmProjects\\MorningBatch\\eventmanage\\bday.ico")
+        self.iconphoto(False, p1)
         f = font = ('Times New Roman', 15)
         self.head = Label(self, text="Adding New event", font=('Times New Roman', 20))
         self.head.grid(row=0, column=10)
@@ -38,6 +39,16 @@ class neweve(Tk):
         self.prize.grid(row=5, column=30)
         self.bt = Button(self, text="Add to Base", command=self.enroll)
         self.bt.grid(row=6, column=30)
+        self.bs = Button(self, text="BAck", command=self.back)
+        self.bs.grid(row=0, column=30)
+
+    def back(self):
+        self.destroy()
+        '''from eventmanage.eventsHome import home
+        #Toplevel(home).mainloop()
+        #home().mainloop()'''
+        import eventmanage.eventsHome as hm
+        hm.home().mainloop()
 
     def enroll(self):
         try:

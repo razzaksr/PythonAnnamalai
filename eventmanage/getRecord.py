@@ -11,6 +11,8 @@ class recordRead(Tk):
         Tk.__init__(self)
         self.title("Getting records")
         self.geometry("500x400")
+        p1 = PhotoImage(file="C:\\Users\\DOLL\\PycharmProjects\\MorningBatch\\eventmanage\\bday.ico")
+        self.iconphoto(False, p1)
         self.head=Label(self,text="Fetch by following options",font=('Times New Roman',30))
         self.head.grid(row=0,column=10)
         self.combo=Combobox(self)
@@ -29,6 +31,14 @@ class recordRead(Tk):
         self.bt.grid(row=3, column=60)
         self.hai = scrolledtext.ScrolledText(self, width=100, height=10)
         self.hai.grid(row=4, column=10)
+        self.bs = Button(self, text="BAck", command=self.back)
+        self.bs.grid(row=0, column=30)
+
+    def back(self):
+        self.destroy()
+        #from eventmanage.eventsHome import home
+        import eventmanage.eventsHome as hm
+        hm.home().mainloop()
     def read(self):
         self.hai.insert(0.1, "")
         temp="Event id\tEventName\tEventDate\tEventDepartment\tEventOrganizer\tEventParticipants\tEventWinner\tPrize\n"

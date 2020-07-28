@@ -13,6 +13,8 @@ class home(Tk):
         Tk.__init__(self)
         self.title("Home for Event management")
         self.geometry("500x400")
+        p1 = PhotoImage(file="C:\\Users\\DOLL\\PycharmProjects\\MorningBatch\\eventmanage\\bday.ico")
+        self.iconphoto(False, p1)
         self.head = Label(text="Home for Events", font=('Monotype Cursiva', 30))
         self.head.pack(expand=True, fill=BOTH)
         self.bar = Menu(self)
@@ -29,18 +31,22 @@ class home(Tk):
         self.destroy()
 
     def newone(self):
+        self.destroy()
         self.new = neweve()
         self.new.mainloop()
 
     def contribute(self):
+        self.destroy()
         self.add = partAdd()
         self.add.mainloop()
 
     def announce(self):
+        self.destroy()
         self.win = winDec()
         self.win.mainloop()
 
     def reports(self):
+        self.destroy()
         self.rec = recordRead()
         self.rec.mainloop()
 
