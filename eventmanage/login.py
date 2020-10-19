@@ -5,29 +5,6 @@ from tkinter import messagebox
 
 from eventmanage.eventsHome import home
 
-'''def log():
-    if user.get()=='annamalai' and pas.get()=='salem':
-        win.destroy()
-        hm=home()
-        hm.mainloop()
-    else:messagebox.showinfo("error","Invalid login")
-
-win=Tk()
-win.title("Login")
-win.geometry("500x400")
-p1=PhotoImage(file="C:\\Users\\DOLL\\PycharmProjects\\MorningBatch\\eventmanage\\bday.ico")
-win.iconphoto(False,p1)
-head=Label(win,text="Login to Event home")
-head.pack(side=TOP,padx=10,pady=20)
-user=Entry(win)
-user.pack(side=TOP,padx=10,pady=40)
-pas=Entry(win,show="*")
-pas.pack(side=TOP,padx=10,pady=60)
-bt=Button(win,text="Login",command=log)
-bt.pack(side=TOP, padx=10, pady=80)
-
-mainloop()'''
-
 class enter(Tk):
     def __init__(self):
         Tk.__init__(self)
